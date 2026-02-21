@@ -49,3 +49,15 @@ When called with a specific section to update:
 - Keep screen names consistent with existing map if re-crawling
 - If you can't reach a screen, mark it ⚠️ unreachable instead of removing it
 - Capture screenshots for every screen — they help the developer verify the map
+
+## Final Step: Reconcile Flow Registry Coverage
+After writing/updating the nav map, reconcile the flow registry's Coverage Matrix:
+
+1. Read `.maestro/flow-registry.md` (skip this step entirely if the file doesn't exist — no flows have been generated yet)
+2. Read the updated `.maestro/nav-map.md` Feature Index to get the current list of features
+3. Rebuild the **Coverage Matrix** only:
+   - For each feature in the nav map, check if any Flow Index entry lists it
+   - New features get `⚠️ uncovered`
+   - Existing features keep their current flow list
+4. Do NOT modify the Flow Index or Shared Flows sections — those belong to the flow-generator
+5. Write the updated file
