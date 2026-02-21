@@ -1,5 +1,5 @@
 {
   "name": "deguster",
-  "version": "0.0.1",
+  "version": "v0.0.1",
   "description": "Taste your mobile app before serving. UI testing via Maestro CLI and mobilecli — E2E testing, cross-platform parity, flow generation, nav map discovery, and regression analysis."
 }
