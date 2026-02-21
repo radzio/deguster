@@ -54,6 +54,20 @@ labels, and view structure. Do NOT guess selectors — verify them against
 the live hierarchy. If the app isn't launched yet, run
 `mobilecli apps launch <appId> --device <id>` first.
 
+## Source Code Awareness
+If the app source code is available in the working directory, use it to improve flow quality:
+
+1. **Discover test IDs**: search source for `testTag`, `contentDescription`, `accessibilityIdentifier`, `testID`, or `data-testid` to find existing test IDs — prefer these as selectors when available
+2. **Understand UI structure**: read navigation files (routes, navigators, storyboards) to understand screen transitions without relying solely on live crawling
+3. **Add missing test IDs**: if a critical element lacks a test ID and only has fragile selectors (coordinates, index-based), suggest adding one to the app code. Offer a concrete code change:
+   - Android (Compose): `Modifier.testTag("element-name")`
+   - Android (XML): `android:contentDescription="element-name"`
+   - iOS (SwiftUI): `.accessibilityIdentifier("element-name")`
+   - iOS (UIKit): `accessibilityIdentifier = "element-name"`
+   - React Native: `testID="element-name"`
+   - Flutter: `Key("element-name")`
+4. **Only suggest ID additions** for elements that are test-critical (buttons, inputs, assertions targets). Don't suggest IDs for every element.
+
 ## Rules
 - Always start with `appId:` and `---` separator
 - Run `maestro hierarchy` to discover real selectors before writing flows
