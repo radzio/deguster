@@ -1,6 +1,8 @@
 ---
+name: app-crawler
 description: Systematically explores an app to build/update the navigation map. Sonnet for reasoning about screen transitions and element discovery.
 model: claude-sonnet-4-5-20250929
+color: magenta
 allowed-tools: Bash, Read, Write
 ---
 

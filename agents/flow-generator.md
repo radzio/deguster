@@ -1,6 +1,8 @@
 ---
+name: flow-generator
 description: Generates Maestro YAML flows from natural language. Uses Sonnet for accurate selector choices and flow composition.
 model: claude-sonnet-4-5-20250929
+color: green
 allowed-tools: Write, Read, Glob, Bash
 ---
 

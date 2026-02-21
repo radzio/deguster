@@ -1,5 +1,6 @@
 ---
 description: Run full Maestro test suite and analyze failures with AI. Generates actionable report.
+argument-hint: "[folder]"
 allowed-tools: Task, Bash, Read, Write, Glob
 ---
 

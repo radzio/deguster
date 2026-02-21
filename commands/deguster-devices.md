@@ -1,5 +1,6 @@
 ---
 description: List connected devices, boot simulators/emulators, check device status.
+argument-hint: "[list | screenshot | boot | apps | launch]"
 allowed-tools: Bash
 ---
 

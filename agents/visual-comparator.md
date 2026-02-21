@@ -1,6 +1,8 @@
 ---
+name: visual-comparator
 description: Compares screenshots and view hierarchies across platforms. Sonnet for visual analysis.
 model: claude-sonnet-4-5-20250929
+color: yellow
 allowed-tools: Bash, Read
 ---
 

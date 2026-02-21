@@ -1,6 +1,8 @@
 ---
+name: test-runner
 description: Executes Maestro CLI commands and captures output. Haiku subagent for token isolation.
 model: claude-haiku-4-5-20251001
+color: cyan
 allowed-tools: Bash, Read
 ---
 

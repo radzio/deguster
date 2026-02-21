@@ -47,7 +47,7 @@ deguster/
 - Assert after every significant action
 - **NO `assertWithAI` / `assertNoDefectsWithAi`** unless user explicitly requests it
 
-### Nav map (``.maestro/nav-map.md``)
+### Nav map (`.maestro/nav-map.md`)
 - Two sections: Screen Tree (indented hierarchy) + Feature Index (flat lookup table)
 - Lines marked `<!-- manual -->` are never overwritten by re-crawl
 - Auth-gated screens marked with 🔐, unreachable with ⚠️

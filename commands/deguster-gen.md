@@ -1,5 +1,6 @@
 ---
 description: Generate Maestro YAML test flows from natural language descriptions. Does not execute — just writes files.
+argument-hint: "<describe the flow to generate>"
 allowed-tools: Task, Bash, Read, Write, Glob
 ---
 

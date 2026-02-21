@@ -1,6 +1,8 @@
 ---
+name: failure-analyzer
 description: Analyzes test failures from JUnit XML and screenshots. Sonnet for cross-referencing errors with visual state.
 model: claude-sonnet-4-5-20250929
+color: red
 allowed-tools: Bash, Read
 ---
 

@@ -1,5 +1,6 @@
 ---
 description: Run E2E mobile UI tests. Describe flows in natural language, agent generates Maestro YAML and executes on target device.
+argument-hint: "<describe what to test>"
 allowed-tools: Task, Bash, Read, Write, Glob
 ---
 

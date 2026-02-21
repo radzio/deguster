@@ -1,5 +1,6 @@
 ---
 description: Compare app behavior across iOS and Android (or two versions). Spawns parallel agents testing both platforms side-by-side.
+argument-hint: "<app on device-A vs device-B — flow to compare>"
 allowed-tools: Task, Bash, Read, Write, Glob
 ---
 

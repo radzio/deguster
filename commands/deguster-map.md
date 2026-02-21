@@ -1,5 +1,6 @@
 ---
 description: Manage the app navigation map. Discover screens by crawling, view current map, or update specific sections.
+argument-hint: "<discover <appId> | view [feature] | update <section> | add <feature> <path>>"
 allowed-tools: Task, Bash, Read, Write, Glob
 ---
 
