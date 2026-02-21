@@ -17,6 +17,7 @@ Part of [plugin-patisserie](https://github.com/radzio/plugin-patisserie).
 | `/deguster:regression [folder]` | Run full suite + AI failure analysis |
 | `/deguster:devices [action]` | List & manage connected devices |
 | `/deguster:map <action>` | Discover, view, update app navigation map |
+| `/deguster:registry <action>` | View flow coverage or rebuild the flow registry |
 
 ## Prerequisites
 

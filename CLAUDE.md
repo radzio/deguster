@@ -26,7 +26,7 @@ deguster/
 ├── commands/                     # 7 slash commands (deguster:test, gen, parity, regression, devices, map, registry)
 ├── agents/                       # 6 subagents (flow-generator, test-runner, failure-analyzer, visual-comparator, app-crawler, device-inspector)
 ├── hooks/
-│   ├── hooks.json                # 4 hooks: PreToolUse, PostToolUse, PostToolUse, Stop
+│   ├── hooks.json                # 4 hook scripts across 3 events (PreToolUse, PostToolUse, Stop)
 │   └── scripts/                  # shell scripts for hook logic
 ├── skills/
 │   ├── maestro-syntax/           # Maestro YAML reference + 4 example flows
