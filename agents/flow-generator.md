@@ -62,3 +62,22 @@ the live hierarchy. If the app isn't launched yet, run
 - Add `label:` to critical steps for readable test reports
 - Use `runFlow:` for shared setup (login, onboarding)
 - Do NOT use `assertWithAI` or `assertNoDefectsWithAi` unless the user explicitly asks for AI-powered assertions
+
+## Final Step: Update Flow Registry
+After writing the flow YAML, ALWAYS update `.maestro/flow-registry.md`:
+
+1. Read `.maestro/flow-registry.md` (if missing, create from the template in the flow-registry skill)
+2. Add a row to the **Flow Index** table:
+   - Flow: relative path from `.maestro/` (e.g., `flows/login-invalid.yaml`)
+   - Features: the feature(s) this flow tests (match nav map Feature Index names)
+   - Screens: screens visited during the flow
+   - Depends On: any `runFlow:` references found in the YAML (or `—`)
+   - Tags: inferred from the flow purpose (smoke, regression, negative, auth, etc.)
+   - Generated: today's date (YYYY-MM-DD)
+3. If the flow uses `runFlow:`, update the **Shared Flows** table — add or update the row for each shared flow
+4. Rebuild the **Coverage Matrix** by cross-referencing all Flow Index entries against the nav map Feature Index:
+   - Each feature in the nav map gets a row
+   - List all flows whose Features column includes that feature
+   - Mark `✅ N flows` or `⚠️ uncovered`
+5. Write the updated file
+6. Delete `.maestro/.registry-stale` if it exists (registry is now fresh)
