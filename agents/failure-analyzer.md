@@ -26,3 +26,9 @@ For each failure return:
 - Classification (with confidence %)
 - Root cause analysis
 - Suggested fix (test change or app fix)
+
+## Registry Cross-Check
+Before reporting, if `.maestro/flow-registry.md` exists:
+1. Read the Flow Index
+2. For each flow listed, check if the file exists on disk
+3. If a flow file is missing, add to the report: `❌ Flow file missing: <path> — remove from registry with /deguster:registry rebuild`
