@@ -23,14 +23,15 @@ Slash command → Agent (Sonnet/Haiku) → CLI tool (maestro/mobilecli)
 ```
 deguster/
 ├── .claude-plugin/plugin.json    # plugin manifest
-├── commands/                     # 6 slash commands (deguster:test, gen, parity, regression, devices, map)
+├── commands/                     # 7 slash commands (deguster:test, gen, parity, regression, devices, map, registry)
 ├── agents/                       # 6 subagents (flow-generator, test-runner, failure-analyzer, visual-comparator, app-crawler, device-inspector)
 ├── hooks/
-│   ├── hooks.json                # 3 hooks: PreToolUse, PostToolUse, Stop
+│   ├── hooks.json                # 4 hooks: PreToolUse, PostToolUse, PostToolUse, Stop
 │   └── scripts/                  # shell scripts for hook logic
 ├── skills/
 │   ├── maestro-syntax/           # Maestro YAML reference + 4 example flows
-│   └── nav-map/                  # auto-loads nav map for flow generation
+│   ├── nav-map/                  # auto-loads nav map for flow generation
+│   └── flow-registry/            # flow registry skill
 ├── README.md
 └── .gitignore
 ```
@@ -53,9 +54,16 @@ deguster/
 - Auth-gated screens marked with 🔐, unreachable with ⚠️
 - flow-generator always reads nav map first before generating
 
+### Flow registry (`.maestro/flow-registry.md`)
+- Three sections: Flow Index (flow → features, screens, deps), Coverage Matrix (feature → flows), Shared Flows (shared flow → dependents)
+- Automatically maintained: flow-generator updates on flow creation, app-crawler reconciles on nav map rebuild, failure-analyzer cross-checks during regression
+- `check-registry-staleness.sh` (PostToolUse): flags `.maestro/.registry-stale` when flow files change outside agents
+- `/deguster:registry rebuild` is the escape hatch for full rescan
+
 ### Hooks philosophy
 Hooks are cheap signals, not expensive automated actions:
 - `check-nav-map-staleness.sh` (PostToolUse): appends to `.maestro/.nav-map-stale` sentinel when UI files change
+- `check-registry-staleness.sh` (PostToolUse): appends to `.maestro/.registry-stale` sentinel when flow files change
 - `suggest-map-update.sh` (Stop): reminds user if sentinel exists
 - `auto-approve-maestro.sh` (PreToolUse): auto-approves safe read-only CLI commands
 
@@ -75,6 +83,7 @@ Hooks are cheap signals, not expensive automated actions:
 ## Runtime artifacts (gitignored)
 
 - `.maestro/.nav-map-stale` — staleness sentinel file
+- `.maestro/.registry-stale` — registry staleness sentinel file
 - `.maestro/screenshots/` — captured device screenshots
 - `.maestro/reports/` — JUnit XML test reports
 - `.maestro/generated/` — auto-generated Maestro flows
