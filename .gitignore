@@ -1,0 +1,5 @@
+# deguster runtime artifacts (don't commit these)
+.maestro/.nav-map-stale
+.maestro/screenshots/
+.maestro/reports/
+.maestro/generated/

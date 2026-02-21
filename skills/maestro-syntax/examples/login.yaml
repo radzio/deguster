@@ -1,0 +1,25 @@
+# Example: Login flow with validation
+appId: com.example.app
+tags:
+  - smoke
+  - auth
+---
+- launchApp
+- tapOn:
+    text: "Sign In"
+    label: Navigate to login
+- tapOn:
+    text: "Email"
+    label: Focus email field
+- inputText: ${EMAIL}
+- tapOn:
+    text: "Password"
+    label: Focus password field
+- inputText: ${PASSWORD}
+- tapOn:
+    text: "Log In"
+    label: Submit login
+- extendedWaitUntil:
+    visible: "Welcome"
+    timeout: 10000
+- assertVisible: "Welcome"

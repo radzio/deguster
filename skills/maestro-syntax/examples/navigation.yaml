@@ -1,0 +1,21 @@
+# Example: Tab navigation and back behavior
+appId: com.example.app
+tags:
+  - navigation
+  - smoke
+---
+- launchApp
+- tapOn:
+    text: "Shop"
+    label: Switch to Shop tab
+- assertVisible: "Categories"
+- tapOn:
+    text: "Electronics"
+    label: Open category
+- assertVisible: "Electronics"
+- back
+- assertVisible: "Categories"
+- tapOn:
+    text: "Profile"
+    label: Switch to Profile tab
+- assertVisible: "My Account"

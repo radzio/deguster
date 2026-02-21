@@ -1,0 +1,24 @@
+# Example: Handling permission dialogs
+appId: com.example.app
+tags:
+  - permissions
+---
+- launchApp
+- runFlow: shared/login.yaml
+- tapOn:
+    text: "Take Photo"
+    label: Trigger camera permission
+# Android permission dialog
+- tapOn:
+    text: "While using the app"
+    optional: true
+    label: Grant camera permission (Android)
+# iOS permission dialog
+- tapOn:
+    text: "Allow"
+    optional: true
+    label: Grant camera permission (iOS)
+- extendedWaitUntil:
+    visible: "Camera Preview"
+    timeout: 5000
+- assertVisible: "Camera Preview"

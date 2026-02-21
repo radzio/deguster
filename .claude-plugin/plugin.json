@@ -1,0 +1,11 @@
+{
+  "name": "deguster",
+  "description": "Taste your mobile app before serving. UI testing via Maestro CLI and mobilecli — E2E testing, cross-platform parity, flow generation, nav map discovery, and regression analysis.",
+  "version": "1.0.0",
+  "author": "radzio",
+  "marketplace": "radzio/plugin-patisserie",
+  "dependencies": {
+    "maestro": "CLI — install via: curl -Ls 'https://get.maestro.mobile.dev' | bash",
+    "mobilecli": "CLI — install via: npm install -g @mobilenext/mobilecli"
+  }
+}

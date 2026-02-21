@@ -1,0 +1,32 @@
+# Example: Checkout flow with shared login
+appId: com.example.app
+tags:
+  - critical
+  - e2e
+---
+- launchApp
+- runFlow: shared/login.yaml
+- tapOn:
+    text: "Cart"
+    label: Open cart tab
+- assertVisible: "Your Cart"
+- tapOn:
+    text: "Checkout"
+    label: Begin checkout
+- extendedWaitUntil:
+    visible: "Shipping Address"
+    timeout: 5000
+- tapOn:
+    text: "Use saved address"
+    label: Select shipping address
+- tapOn:
+    text: "Continue to Payment"
+    label: Proceed to payment
+- assertVisible: "Payment Method"
+- tapOn:
+    text: "Place Order"
+    label: Confirm order
+- extendedWaitUntil:
+    visible: "Order Confirmed"
+    timeout: 15000
+- assertVisible: "Order Confirmed"
